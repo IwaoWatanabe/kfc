@@ -1,0 +1,19 @@
+<html>
+<head><title>KFC HTML Editor</title></head>
+<body>
+<h1>KFC HTML Editor</h1>
+<hr>
+<!--
+The codebase should be specified by using IP address (not host name) to
+make applets work through proxy/firewall, because many WWW clients set
+trustProxy property to false.
+-->
+<!-- applet codebase="http://150.29.9.5/kyasu/" -->
+<applet codebase="../"
+	code="applets.HTMLEditorApplet" archive="kfc.jar"
+	width=600 height=400>
+<!-- param name=URL value="index.html" -->
+<param name=URL value="README.html">
+</applet>
+<hr>
+<a href="HTMLEditorApplet.java">The source.</a>

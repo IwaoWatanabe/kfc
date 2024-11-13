@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html">
+   <META NAME="Author" CONTENT="Kazuki Yasumatsu">
+   <TITLE>KFC README</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<FONT COLOR="#0000FF">
+<H1 ALIGN=CENTER>
+README
+</H1>
+<H1 ALIGN=CENTER>
+KFC (<FONT COLOR="#FF0000">Kazuki YASUMATSU</FONT>'s Foundation Classes)<BR>
+Version 1.1.3
+</H1>
+</FONT>
+
+<P ALIGN=CENTER>
+<RECT WIDTH="100%" HEIGHT="10" COLOR="#0000FF">
+</P>
+
+<P ALIGN=CENTER>
+<A HREF="kfc.gif"><IMG SRC="kfc-half.gif"></A>
+</P>
+
+<P ALIGN=CENTER>
+<RECT WIDTH="100%" HEIGHT="10" COLOR="#0000FF">
+</P>
+
+<HR><!-- ============================================================ -->
+<H2>Introduction</H2>
+
+<P>
+I have been written many applications such as MailBrowser and WWWBrowser
+(called <FONT COLOR="#0000FF"><I>SmallWalker</I></FONT>) in Smalltalk.
+Now, I am trying to port them on Java, but I found that AWT is very poor,
+especially TextComponent, to port my applications. So, I have decided to
+write Widget Classes that have rich functionalities enabling my applications
+to be ported on Java.
+</P>
+
+<P>
+My Widget Classes called <I><B>KFC</B> (Kazuki YASUMATSU's Foundation
+Classes)</I> currently support following components:
+</P>
+
+<UL>
+<LI>TextComponent, TextArea, TextField
+<LI>List
+<LI>Scrollbar
+<LI>Label
+<LI>Button
+<LI>Choice
+<LI>Checkbox
+<LI><B>TableList</B>
+</UL>
+
+<P>
+All components are lightweight components written in 100% pure Java and
+compatible with AWT components. They also have many enhanced APIs.
+</P>
+
+<P>
+TextComponent and its subclasses (TextArea, TextField) are the most
+enhanced components and they have following features:
+</P>
+
+<UL>
+<LI>Supporting multiple text styles
+  <UL>
+  <LI>Font-name/style/size
+  <LI>Color
+  <LI>Underline
+  </UL>
+<LI>Supporting multiple paragraph styles
+  <UL>
+  <LI>Alignment (left/center/right)
+  <LI>Line spacing, Paragraph spacing
+  <LI>Text wrapping (char wrap/word wrap/no wrap)
+  </UL>
+<LI>Inlining Objects
+  <UL>
+  <LI>Objects that implement
+      <FONT COLOR="#FF0000"><B>Visualizable interface</B></FONT>
+      such as Image, Text, Shape, ..., etc.
+  </UL>
+<LI>Printing
+</UL>
+
+<P>
+TextComponent and its subclasses are powerful enough to implement word
+processors and HTML browsers/editors.
+</P>
+
+<HR><!-- ============================================================ -->
+<H2>Demos</H2>
+
+Try KFC demo applets.<BR>
+<B>Note:</B>
+<FONT COLOR="#ff0000">
+Netscape Commucator 4.06 or later, or Internet Explorer 4.0 or later is required.
+</FONT>
+The rich text is displayed less well on Internet Explorer 4.0.
+
+<UL>
+<LI><A href="applets/BasicApplet.html">KFC Basic Components</A>
+<LI><A href="applets/TableListApplet.html">KFC TableList</A>
+<LI><A href="applets/CodeEditorApplet.html">KFC Code Editor</A>
+<LI><A href="applets/DocumentEditorApplet.html">KFC Document Editor</A>
+<LI><A href="applets/HTMLEditorApplet.html">KFC HTML Editor</A>
+</UL>
+
+<HR><!-- ============================================================ -->
+<H2>KFC Documentation</H2>
+
+<A href="api/packages.html">KFC API Documentation</A><br>
+
+<HR><!-- ============================================================ -->
+<H2>Quick Start</H2>
+
+<P>
+This KFC release includes jar file (<TT>kfc.jar</TT>), its sources
+(<TT>src.zip</TT>), and the API documents.
+
+<P>
+KFC may works on JDK 1.1 or later. However, JDK 1.1.4 or before have
+some bugs about handling lightweight components. I highly recommend to
+run KFC on JDK 1.1.5 or later.
+</P>
+
+<P>
+KFC also works on Java2(JDK1.2).
+</P>
+
+<P>
+Please add <TT>kfc.jar</TT> and <TT>examples</TT> directory to your
+<TT>CLASSPATH</TT> and try examples.
+</P>
+
+<PRE>
+        java Notepad               (Notepad example)
+        java Javapad               (Javapad example)
+        java Stylepad              (Stylepad example)
+        java Webpad                (Webpad example)
+        java Webpad README.html    (Readme of KFC)
+        java Webpad READMEJ.html   (Readme of KFC in japanese)
+</PRE>
+
+<H3>A. If you're running UNIX:</H3>
+
+<PRE>
+setenv CLASSPATH /kfcdir/kfc.jar:/kfcdir/examples
+or
+export CLASSPATH; CLASSPATH=/kfcdir/kfc.jar:/kfcdir/examples
+</PRE>
+
+<H3>B. If you're running Windows 95/98/NT:</H3>
+
+<PRE>
+set CLASSPATH=C:\kfcdir\kfc.jar;C:\kfcdir\examples
+</PRE>
+
+<!--
+<FONT COLOR="#FF0000">
+<B>Note: JIT compiler of JDK1.1.6 has a bug. Please update the JIT compiler.</B></FONT>
+<A HREF="http://java.sun.com/products/jdk/1.1/download-jdk-windows.html">
+JIT Update for JDK 1.1.6 Software
+</A>
+-->
+
+<H3>Tips</H3>
+
+If you're using proxy, try:
+<PRE>
+    java -DproxySet=true
+         -DproxyHost=<i>your.proxy.host</i>
+         -DproxyPort=<i>8080</i> // your proxy port
+         -Dhttp.nonProxyHosts=<i>"*.your.local.net"</i>
+         Webpad
+</PRE>
+
+<HR><!-- ============================================================ -->
+<H2>Copyright</H2>
+
+<PRE>
+Copyright (c) 1997, 1998, 1999 Kazuki YASUMATSU.  All Rights Reserved.
+
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee or royalty is hereby
+granted, provided that both the above copyright notice and this
+permission notice appear in all copies of the software and
+documentation or portions thereof, including modifications, that you
+make.
+
+THIS SOFTWARE IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO
+REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE,
+BUT NOT LIMITATION, COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR
+THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY
+THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+COPYRIGHT HOLDERS WILL BEAR NO LIABILITY FOR ANY USE OF THIS SOFTWARE
+OR DOCUMENTATION.
+</PRE>
+
+<HR><!-- ============================================================ -->
+
+<P ALIGN=RIGHT>
+Copyright (c) 1997, 1998, 1999 Kazuki YASUMATSU. All Rights Reserved.<BR>
+<CODE>
+<A HREF="mailto:Kazuki.Yasumatsu@fujixerox.co.jp">
+Kazuki.Yasumatsu@fujixerox.co.jp
+</A>(Quick Response)<BR>
+<A HREF="mailto:kyasu@asahi-net.email.ne.jp">
+kyasu@asahi-net.email.ne.jp
+</A>(Sloow Response)<BR>
+<A HREF="http://openlab.ring.gr.jp/kyasu/">
+http://openlab.ring.gr.jp/kyasu/
+</A>
+</CODE>
+</P>
+
+</BODY>
+</HTML>

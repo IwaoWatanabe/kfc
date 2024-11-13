@@ -1,0 +1,245 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html">
+   <META NAME="Author" CONTENT="Kazuki Yasumatsu">
+   <TITLE>KFC README</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<FONT COLOR="#0000FF">
+<H1 ALIGN=CENTER>
+README
+</H1>
+<H1 ALIGN=CENTER>
+KFC (<FONT COLOR="#FF0000">Kazuki YASUMATSU</FONT>'s Foundation Classes)<BR>
+Version 1.1.3
+</H1>
+</FONT>
+
+<P ALIGN=CENTER>
+<RECT WIDTH="100%" HEIGHT="10" COLOR="#0000FF">
+</P>
+
+<P ALIGN=CENTER>
+<A HREF="kfc.gif"><IMG SRC="kfc-half.gif"></A>
+</P>
+
+<P ALIGN=CENTER>
+<RECT WIDTH="100%" HEIGHT="10" COLOR="#0000FF">
+</P>
+
+<HR><!-- ============================================================ -->
+<H2>紹介</H2>
+
+<P>
+私は今までSmalltalkで、MailBrowserやWWWBrowser
+(<FONT COLOR="#0000FF"><I>SmallWalker</I></FONT>)
+といった多くのアプリケーションを開発してきました。今回、これらのアプリ
+ケーションをJavaに移植しようとしたのですが、AWT、特にTextComponentがあ
+まりにも貧弱なため、私のアプリケーションを移植するに足る十分な機能を持っ
+たWidgetクラス群を開発しようと決めました。
+</P>
+
+<P>
+<I><B>KFC</B> (Kazuki YASUMATSU's Foundation Classes)</I>
+と呼ぶ、私のWidgetクラス群は、以下のコンポーネントをサポートしています。
+</P>
+
+<UL>
+<LI>TextComponent, TextArea, TextField
+<LI>List
+<LI>Scrollbar
+<LI>Label
+<LI>Button
+<LI>Choice
+<LI>Checkbox
+<LI><B>TableList</B>
+</UL>
+
+<P>
+全てのコンポーネントは、100%ピュアJavaで記述されたlightweightコンポー
+ネントであり、AWTコンポーネントと互換性があります。また、多くの拡張さ
+れたAPIを持ちます。
+</P>
+
+<P>
+互換性に関しては、TeikadeのAWTをKFCに入れ換えて使用していますが、特に
+問題はありません。
+</P>
+
+<P>
+KFCのTextComponentおよびそのサブクラス(TextArea, TextField)は、KFCの中
+で最も強化された部分であり、以下のような機能があります。
+</P>
+
+<UL>
+<LI>テキスト・スタイルのサポート
+    <UL>
+    <LI>フォント名/スタイル/サイズ
+    <LI>色
+    <LI>下線
+    </UL>
+<LI>パラグラフ・スタイルのサポート
+    <UL>
+    <LI>アラインメント (左/中央/右)
+    <LI>ライン・スペース、パラグラフ・スペース
+    <LI>テキスト・ラッピング (文字/単語/ラッピングなし)
+    </UL>
+<LI>オブジェクトの挿入
+    <UL>
+    <LI><FONT COLOR="#FF0000">Visualizable interface</FONT>
+	を実装した任意のオブジェクト。
+	現在、イメージ、テキスト、HRなどがあります。
+    </UL>
+<LI>印刷
+</UL>
+
+<P>
+KFCのTextComponentとそのサブクラスは、ワードプロセッサーやHTMLビュー
+ア/エディタを開発するのに十分な能力を持っています。
+</P>
+
+<P>
+TextComponentは現実的なアプリケーションを開発するために、最も基本的か
+つ重要なコンポーネントです。特にUNIX系のプラットフォームでは、
+TextComponentが貧弱なため、Javaでアプリケーションを開発しても、実際に
+はWindows系のプラットフォームでしか実用的には使えない、などの問題が起
+こります。Javaの<FONT COLOR="#FF0000"><B>Write Once/Run Anywhere</B></FONT>
+の精神を活かすためにも、100%ピュアJavaで現実的なTextComponentを実装す
+るのは重要なことです。
+</P>
+
+<HR><!-- ============================================================ -->
+<H2>デモ</H2>
+
+KFCのデモアップレットをお試しください。<BR>
+<B>注意:</B>
+<FONT COLOR="#ff0000">
+Netscape Commucator 4.06以降 もしくは Internet Explorer 4.0以降が必要です。
+</FONT>
+ただし、Internet Explorer 4.0 では、リッチ・テキストの表示が多少おかしく
+なります。
+
+<UL>
+<LI><A href="applets/BasicApplet.html">KFC Basic Components</A>
+<LI><A href="applets/TableListApplet.html">KFC TableList</A>
+<LI><A href="applets/CodeEditorApplet.html">KFC Code Editor</A>
+<LI><A href="applets/DocumentEditorApplet.html">KFC Document Editor</A>
+<LI><A href="applets/HTMLEditorApplet.html">KFC HTML Editor</A>
+</UL>
+
+<HR><!-- ============================================================ -->
+<H2>KFC ドキュメント</H2>
+
+<A href="api/packages.html">KFC API Documentation</A><br>
+
+<HR><!-- ============================================================ -->
+<H2>クイック・スタート</H2>
+
+<P>
+このKFCリリースには、jarファイル(<TT>kfc.jar</TT>)、そのソースコード
+(<TT>src.zip</TT>)、およびAPIドキュメントが含まれています。
+</P>
+
+<P>
+KFCはJDK1.1以降で動作すると思います。しかしながら、JDK 1.1.4以前では、
+lightweightコンポーネントの取り扱いに関するバグがあるので、JDK 1.1.5以
+降を使用することを強くお勧めします。
+</P>
+
+<P>
+また、KFCはJava2(JDK1.2)でも動作します。
+</P>
+
+<P>
+それでは、<TT>kfc.jar</TT>と<TT>examples</TT>ディレクトリを<TT>CLASSPATH</TT>
+に追加して、以下のサンプルプログラムをお楽しみ下さい。
+</P>
+
+<PRE>
+        java Notepad               (Notepadサンプル)
+        java Javapad               (Javapadサンプル)
+        java Stylepad              (Stylepadサンプル)
+        java Webpad                (Webpadサンプル)
+        java Webpad README.html    (KFCのReadme)
+        java Webpad READMEJ.html   (KFCの日本語版Readme)
+</PRE>
+
+<H3>A. UNIXをご使用の方へ:</H3>
+
+<PRE>
+setenv CLASSPATH /kfcdir/kfc.jar:/kfcdir/examples
+もしくは、
+export CLASSPATH; CLASSPATH=/kfcdir/kfc.jar:/kfcdir/examples
+</PRE>
+
+<H3>B. Windows 95/98/NTをご使用の方へ:</H3>
+
+<PRE>
+set CLASSPATH=C:\kfcdir\kfc.jar;C:\kfcdir\examples
+</PRE>
+
+<!--
+<FONT COLOR="#FF0000">
+<B>
+注: JDK1.1.6のJITコンパイラにはバグがあります。JITコンパイラを更新して下さい:
+</B>
+</FONT>
+<A HREF="http://java.sun.com/products/jdk/1.1/download-jdk-windows.html">
+JIT Update for JDK 1.1.6 Software
+</A>
+-->
+
+<H3>Tips</H3>
+
+Proxyをお使いの方:
+<PRE>
+    java -DproxySet=<i>true</i>
+         -DproxyHost=<i>your.proxy.host</i>
+         -DproxyPort=<i>8080</i> // your proxy port
+         -Dhttp.nonProxyHosts=<i>"*.your.local.net"</i>
+	 Webpad
+</PRE>
+
+<HR><!-- ============================================================ -->
+<H2>Copyright</H2>
+
+<PRE>
+Copyright (c) 1997, 1998, 1999 Kazuki YASUMATSU.  All Rights Reserved.
+
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee or royalty is hereby
+granted, provided that both the above copyright notice and this
+permission notice appear in all copies of the software and
+documentation or portions thereof, including modifications, that you
+make.
+
+THIS SOFTWARE IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO
+REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE,
+BUT NOT LIMITATION, COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR
+THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY
+THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+COPYRIGHT HOLDERS WILL BEAR NO LIABILITY FOR ANY USE OF THIS SOFTWARE
+OR DOCUMENTATION.
+</PRE>
+
+<HR><!-- ============================================================ -->
+
+<P ALIGN=RIGHT>
+Copyright (c) 1997, 1998, 1999 Kazuki YASUMATSU. All Rights Reserved.<BR>
+<CODE>
+<A HREF="mailto:Kazuki.Yasumatsu@fujixerox.co.jp">
+Kazuki.Yasumatsu@fujixerox.co.jp
+</A>(Quick Response)<BR>
+<A HREF="mailto:kyasu@asahi-net.email.ne.jp">
+kyasu@asahi-net.email.ne.jp
+</A>(Sloow Response)<BR>
+<A HREF="http://openlab.ring.gr.jp/kyasu/">
+http://openlab.ring.gr.jp/kyasu/
+</A>
+</CODE>
+</P>
+
+</BODY>
+</HTML>
