@@ -293,7 +293,7 @@ public class AWTResources {
 		}
 		return;
 	    }
-	    if (!(getPeer(c) instanceof java.awt.peer.LightweightPeer)) {
+	    if (!c.isLightweight()) {
 		inNativeContainer = true;
 	    }
 	}
@@ -340,10 +340,10 @@ public class AWTResources {
      * Returns the native component for the specified component.
      */
     static protected Component getNativeComponent(Component c) {
-	if (!(getPeer(c) instanceof java.awt.peer.LightweightPeer))
+	if (!c.isLightweight())
 	    return c;
 	for (Container p = c.getParent(); p != null; p = p.getParent()) {
-	    if (!(getPeer(p) instanceof java.awt.peer.LightweightPeer))
+	    if (!p.isLightweight())
 		return p;
 	}
 	return null;
