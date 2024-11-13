@@ -293,10 +293,21 @@ public class AWTResources {
 		}
 		return;
 	    }
-	    if (!(c.getPeer() instanceof java.awt.peer.LightweightPeer)) {
+	    if (!(getPeer(c) instanceof java.awt.peer.LightweightPeer)) {
 		inNativeContainer = true;
 	    }
 	}
+    }
+
+    static Object getPeer(Component c) {
+        // for JRE9
+        try { return c.getPeer(); } catch(java.lang.NoSuchMethodError e) {
+            try {
+                java.lang.reflect.Field pf = c.getClass().getField("peer");
+                pf.setAccessible(true);
+                return pf.get(c);
+            } catch(Exception ignored) { return null; }
+        }
     }
 
     /** The lock for the foucusing bug workaround. */
@@ -329,10 +340,10 @@ public class AWTResources {
      * Returns the native component for the specified component.
      */
     static protected Component getNativeComponent(Component c) {
-	if (!(c.getPeer() instanceof java.awt.peer.LightweightPeer))
+	if (!(getPeer(c) instanceof java.awt.peer.LightweightPeer))
 	    return c;
 	for (Container p = c.getParent(); p != null; p = p.getParent()) {
-	    if (!(p.getPeer() instanceof java.awt.peer.LightweightPeer))
+	    if (!(getPeer(p) instanceof java.awt.peer.LightweightPeer))
 		return p;
 	}
 	return null;

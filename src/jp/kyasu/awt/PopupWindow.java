@@ -126,7 +126,7 @@ public class PopupWindow extends Window {
 	    throw new IllegalArgumentException(
 					"origin not in parent's hierarchy");
 	}
-	if (p.getPeer() == null || !p.isShowing()) {
+	if (!p.isDisplayable() || !p.isShowing()) {
 	    throw new RuntimeException("parent not showing on screen");
 	}
 	originWindow = getTopWindow(origin);
