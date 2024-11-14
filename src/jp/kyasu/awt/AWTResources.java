@@ -196,14 +196,14 @@ public class AWTResources {
 		(System.getProperty("java.version").compareTo("1.2") >= 0);
 
 
-    /*if[JDK1.2]
+    // /*if[JDK1.2]
 
     // ======== Default Rendering Hint Map ========
 
     /**
      * The default rendering hint map.
      */
-    /*if[JDK1.2]
+    // /*if[JDK1.2]
     static public final java.util.Map RENDERING_HINTS = new java.util.HashMap();
 
     /*end[JDK1.2]*/

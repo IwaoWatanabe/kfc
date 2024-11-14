@@ -59,7 +59,7 @@ import java.text.BreakIterator;
 import java.text.CharacterIterator;
 import java.util.Enumeration;
 
-/*if[JDK1.2]
+// /*if[JDK1.2]
 import jp.kyasu.graphics.BasicTSModifier;
 import jp.kyasu.graphics.TextBuffer;
 import java.awt.BasicStroke;
@@ -121,7 +121,7 @@ import java.util.Map;
  */
 public class BasicTextEditController extends TextController
 	implements ActionListener
-	/*if[JDK1.2]
+	// /*if[JDK1.2]
 	, InputMethodListener
 	/*end[JDK1.2]*/
 {
@@ -2479,12 +2479,12 @@ public class BasicTextEditController extends TextController
 	*/
     }
 
-    /*if[JDK1.2]
+    // /*if[JDK1.2]
 
     /**
      * Adds this controller to the view.
      */
-    /*if[JDK1.2]
+    // /*if[JDK1.2]
     protected void addToView() {
 	super.addToView();
 	getView().addInputMethodListener(this);
@@ -2493,7 +2493,7 @@ public class BasicTextEditController extends TextController
     /**
      * Invoked when the text entered through an input method has changed.
      */
-    /*if[JDK1.2]
+    // /*if[JDK1.2]
     public void inputMethodTextChanged(InputMethodEvent e) {
 	if (!view.isEnabled())
 	    return;
@@ -2516,7 +2516,7 @@ public class BasicTextEditController extends TextController
     /**
      * Invoked when the caret within composed text has changed.
      */
-    /*if[JDK1.2]
+    // /*if[JDK1.2]
     public void caretPositionChanged(InputMethodEvent e) {
 	if (!view.isEnabled())
 	    return;

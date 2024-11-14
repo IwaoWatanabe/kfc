@@ -47,7 +47,7 @@ import java.awt.Graphics;
 import java.util.Enumeration;
 import java.util.Vector;
 
-/*if[JDK1.2]
+// /*if[JDK1.2]
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.im.InputMethodRequests;
@@ -1070,7 +1070,7 @@ public class TextEditView extends TextView implements TextModelListener {
     }
 
 
-    /*if[JDK1.2]
+    // /*if[JDK1.2]
 
     protected InputMethodRequests inputMethodRequestsHandler;
 

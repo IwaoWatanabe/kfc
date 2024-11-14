@@ -404,7 +404,7 @@ public abstract class KComponent extends java.awt.Component {
 	pg.setFont(getFont());
 	pg.setColor(getForeground());
 
-	/*if[JDK1.2]
+	// /*if[JDK1.2]
 	if (!AWTResources.RENDERING_HINTS.isEmpty()) {
 	    java.awt.Graphics2D g2 = (java.awt.Graphics2D)pg;
 	    g2.setRenderingHints(AWTResources.RENDERING_HINTS);
