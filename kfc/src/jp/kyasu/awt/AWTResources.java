@@ -293,9 +293,8 @@ public class AWTResources {
 		}
 		return;
 	    }
-	    if (!c.isLightweight()) {
-		inNativeContainer = true;
-	    }
+        if (getPeer(c) != null) { inNativeContainer = true; }
+	    // if (!c.isLightweight()) { inNativeContainer = true; }
 	}
     }
 
@@ -304,7 +303,10 @@ public class AWTResources {
         try { return c.getPeer(); } catch(java.lang.NoSuchMethodError e) {
             try {
                 java.lang.reflect.Field pf = c.getClass().getField("peer");
-                pf.setAccessible(true);
+                Class CP[] = { Boolean.TYPE }; Object params[] = { Boolean.TRUE };
+                java.lang.reflect.Method mt = pf.getClass().getMethod("setAccessible",CP);
+                mt.invoke(pf, params);
+                // pf.setAccessible(true);
                 return pf.get(c);
             } catch(Exception ignored) { return null; }
         }
@@ -340,11 +342,12 @@ public class AWTResources {
      * Returns the native component for the specified component.
      */
     static protected Component getNativeComponent(Component c) {
-	if (!c.isLightweight())
+	// if (!c.isLightweight())
+    if (getPeer(c) != null)
 	    return c;
 	for (Container p = c.getParent(); p != null; p = p.getParent()) {
-	    if (!p.isLightweight())
-		return p;
+	    // if (!p.isLightweight())
+        if (getPeer(p) != null) return p;
 	}
 	return null;
     }

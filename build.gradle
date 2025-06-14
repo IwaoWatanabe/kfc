@@ -9,6 +9,7 @@ def env = System.env
 def gver = gradle.gradleVersion
 def osname = System.getProperty('os.name').toLowerCase()
 def osarch = System.getProperty("os.arch")
+def userHome = System.getProperty("user.home")
 
 allprojects {
   apply plugin: 'java'
@@ -166,7 +167,8 @@ publishing {
   repositories {
     maven {
       name = "localRepo"
-      url = uri("${buildDir}/repo")
+      url = uri("${userHome}/.m2/repository")
+      // url = uri("${buildDir}/repo")
       // ここをローカルやリモートの Maven リポジトリ URL に変更可能
     }
   }

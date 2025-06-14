@@ -126,7 +126,7 @@ public class PopupWindow extends Window {
 	    throw new IllegalArgumentException(
 					"origin not in parent's hierarchy");
 	}
-	if (!p.isDisplayable() || !p.isShowing()) {
+	if (!isDisplayable(p) || !p.isShowing()) {
 	    throw new RuntimeException("parent not showing on screen");
 	}
 	originWindow = getTopWindow(origin);
@@ -139,6 +139,14 @@ public class PopupWindow extends Window {
 	Point l = origin.getLocationOnScreen();
 	setLocation(l.x + x, l.y + y);
 	super.show();
+    }
+
+	static boolean isDisplayable(Component c) {
+        try {
+            Class CP[] = { }; Object params[] = { };
+            java.lang.reflect.Method mt = c.getClass().getMethod("isDisplayable",CP); // Java2
+            return ((Boolean)mt.invoke(c, params)).booleanValue();
+        } catch(Exception ignore) { return c.getPeer() != null; }
     }
 
     /**
